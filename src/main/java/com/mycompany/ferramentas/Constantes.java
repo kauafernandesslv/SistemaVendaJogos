@@ -6,7 +6,7 @@ package com.mycompany.ferramentas;
 
 /**
  *
- * @author 10156
+ * @author kaua.1880
  */
 public class Constantes {
     //
