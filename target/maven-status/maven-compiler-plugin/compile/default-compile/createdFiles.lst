@@ -1,0 +1,5 @@
+com\mycompany\ferramentas\DadosTemporarios.class
+com\mycompany\ferramentas\Constantes.class
+com\mycompany\ferramentas\BancoDeDadosMySql.class
+com\mycompany\ferramentas\Formularios.class
+com\mycompany\sistemavendasjogos\SistemaVendasJogos.class
