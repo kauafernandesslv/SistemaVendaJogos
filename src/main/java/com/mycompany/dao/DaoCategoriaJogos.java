@@ -24,15 +24,16 @@ public class DaoCategoriaJogos extends BancoDeDadosMySql{
     
     private String sql; 
     
-    public Boolean inserir(int id, String nome){
+   public Boolean inserir(int id, String nome, String descricao){
         try{
-            sql = "INSERT INTO CATEGORIAJOGOS (CATEGORIA_ID, NOME_CATEGORIA) VALUES (?, ?)";
+            sql = "INSERT INTO CATEGORIA (ID, NOME, DESCRICAO) VALUES (?, ?, ?)";
             
             setStatement(getConexao().prepareStatement(sql));
             
             getStatement().setInt(1, id);
             getStatement().setString(2, nome);
-           
+            getStatement().setString(3, descricao);
+            
             getStatement().executeUpdate();
             
             return true;
@@ -41,27 +42,28 @@ public class DaoCategoriaJogos extends BancoDeDadosMySql{
             return false;
         }
     }
-     public Boolean alterar(int id, String novoNome){
-    try {
-        sql = "UPDATE CATEGORIAJOGOS SET NOME_CATEGORIA = ? WHERE CATEGORIA_ID = ?";
-        
-        setStatement(getConexao().prepareStatement(sql));
-        
-        getStatement().setString(1, novoNome);
-        getStatement().setInt(2, id);
-        
-        getStatement().executeUpdate();
-        
-        return true;
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-        return false;
+      public Boolean alterar(int id, String novoNome, String novaDescricao){
+        try{
+            sql = "UPDATE CATEGORIA SET NOME = ?, DESCRICAO = ? WHERE ID = ?";
+            
+            setStatement(getConexao().prepareStatement(sql));
+            
+            getStatement().setInt(3, id);
+            getStatement().setString(1, novoNome);
+            getStatement().setString(2, novaDescricao);
+            
+            getStatement().executeUpdate();
+            
+            return true;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
-}
     
     public Boolean excluir(int id){
         try{
-            sql = "DELETE FROM CATEGORIAJOGOS WHERE ID = ?";
+            sql = "DELETE FROM CATEGORIA WHERE ID = ?";
             
             setStatement(getConexao().prepareStatement(sql));
             
@@ -77,7 +79,7 @@ public class DaoCategoriaJogos extends BancoDeDadosMySql{
     }
     public ResultSet listarTodos(){
         try{
-            sql = "SELECT ID, NOME FROM CATEGORIA";
+            sql = "SELECT ID, NOME, IFNULL(DESCRICAO, '') FROM CATEGORIA";
             
             setStatement(getConexao().prepareStatement(sql));
             
@@ -92,7 +94,7 @@ public class DaoCategoriaJogos extends BancoDeDadosMySql{
     
     public ResultSet listarPorId(int id){
         try{
-            sql = "SELECT ID, NOME FROM CATEGORIA WHERE ID = ?";
+            sql = "SELECT ID, NOME, IFNULL(DESCRICAO, '') FROM CATEGORIA WHERE ID = ?";
             
             setStatement(getConexao().prepareStatement(sql));
             
@@ -108,7 +110,7 @@ public class DaoCategoriaJogos extends BancoDeDadosMySql{
     
     public ResultSet listarPorNome(String nome){
         try{
-            sql = "SELECT ID, NOME FROM CATEGORIA WHERE NOME LIKE ?";
+            sql = "SELECT ID, NOME, IFNULL(DESCRICAO, '') FROM CATEGORIA WHERE NOME LIKE ?";
             
             setStatement(getConexao().prepareStatement(sql));
             
@@ -122,13 +124,27 @@ public class DaoCategoriaJogos extends BancoDeDadosMySql{
         return getResultado();
     }
     
-   
+    public ResultSet listarPorDescricao(String descricao){
+        try{
+            sql = "SELECT ID, NOME, IFNULL(DESCRICAO, '') FROM CATEGORIA WHERE DESCRICAO LIKE ?";
+            
+            setStatement(getConexao().prepareStatement(sql));
+            
+            getStatement().setString(1, descricao + "%");
+            
+            setResultado(getStatement().executeQuery());
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+        return getResultado();
+    }
     
     public int buscarProximoId(){
         int id = -1;
         
         try{
-            sql = "SELECT MAX(ID) + 1 FROM CATEGORIAJOGOS";
+            sql = "SELECT MAX(ID) + 1 FROM CATEGORIA";
             
             setStatement(getConexao().prepareStatement(sql));
             

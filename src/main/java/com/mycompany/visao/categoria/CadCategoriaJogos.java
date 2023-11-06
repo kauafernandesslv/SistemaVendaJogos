@@ -10,6 +10,12 @@ import com.mycompany.ferramentas.DadosTemporarios;
 import com.mycompany.ferramentas.Formularios;
 import com.mycompany.modelo.ModCategoriaJogos;
 import javax.swing.JOptionPane;
+import com.mycompany.ferramentas.Constantes;
+import com.mycompany.ferramentas.DadosTemporarios;
+import com.mycompany.ferramentas.Formularios;
+import com.mycompany.modelo.ModCategoriaJogos;
+
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,9 +29,9 @@ public class CadCategoriaJogos extends javax.swing.JFrame {
     public CadCategoriaJogos() {
         initComponents();
      if(!existeDadosTemporarios()){
-            DaoCategoriaJogos daoCategoria = new DaoCategoriaJogos();
+            DaoCategoriaJogos DaoCategoriaJogos = new DaoCategoriaJogos();
 
-            int id = daoCategoria.buscarProximoId(); 
+            int id = DaoCategoriaJogos.buscarProximoId(); 
             if (id > 0)
                 tfId.setText(String.valueOf(id));
             
@@ -44,12 +50,12 @@ public class CadCategoriaJogos extends javax.swing.JFrame {
     private Boolean existeDadosTemporarios(){        
         if(DadosTemporarios.tempObject instanceof ModCategoriaJogos){
             int id = ((ModCategoriaJogos) DadosTemporarios.tempObject).getId();
-            String nome = ((ModCategoriaJogos) DadosTemporarios.tempObject).getNome_categoria();
-
+            String nome = ((ModCategoriaJogos) DadosTemporarios.tempObject).getNome();
+            String descricao = ((ModCategoriaJogos) DadosTemporarios.tempObject).getDescricao();
             
             tfId.setText(String.valueOf(id));
             tfNome.setText(nome);
-
+            taDescricao.setText(descricao);
         
             DadosTemporarios.tempObject = null;
             
@@ -74,7 +80,10 @@ public class CadCategoriaJogos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         tfId = new javax.swing.JTextField();
         tfNome = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         btnAcao = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        taDescricao = new javax.swing.JTextArea();
         btnExcluir = new javax.swing.JButton();
 
         textField1.setText("textField1");
@@ -99,12 +108,18 @@ public class CadCategoriaJogos extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setText("Descrição");
+
         btnAcao.setText("Salvar");
         btnAcao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcaoActionPerformed(evt);
             }
         });
+
+        taDescricao.setColumns(20);
+        taDescricao.setRows(5);
+        jScrollPane1.setViewportView(taDescricao);
 
         btnExcluir.setText("Excluir");
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +132,14 @@ public class CadCategoriaJogos extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1)
@@ -128,7 +151,7 @@ public class CadCategoriaJogos extends javax.swing.JFrame {
                     .addComponent(tfNome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnExcluir)
-                .addGap(116, 116, 116))
+                .addGap(15, 15, 15))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,11 +164,15 @@ public class CadCategoriaJogos extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAcao)
                     .addComponent(btnExcluir))
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -195,37 +222,37 @@ public class CadCategoriaJogos extends javax.swing.JFrame {
     private void tfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomeActionPerformed
-private void inserir(){
-        DaoCategoriaJogos daoCategoria = new DaoCategoriaJogos();
-        
-        if (daoCategoria.inserir(Integer.parseInt(tfId.getText()), tfNome.getText())){
+private void inserir() {
+    DaoCategoriaJogos daoCategoriaJogos = new DaoCategoriaJogos();
+    
+    if (daoCategoriaJogos.inserir(Integer.parseInt(tfId.getText()), tfNome.getText(), taDescricao.getText())) {
             JOptionPane.showMessageDialog(null, "Categoria salva com sucesso!");
             
             tfId.setText("");
             tfNome.setText("");
-          
+            taDescricao.setText("");
         }else{
             JOptionPane.showMessageDialog(null, "Não foi possível salvar a categoria!");
         }
     }
     
-private void alterar() {
-    DaoCategoriaJogos daoCategoria = new DaoCategoriaJogos();
+   private void alterar() {
+    DaoCategoriaJogos categoriaJogos = new DaoCategoriaJogos();
     
-    if (daoCategoria.alterar(Integer.parseInt(tfId.getText()), tfNome.getText())) {
-        JOptionPane.showMessageDialog(null, "Categoria alterada com sucesso!");
+    if (categoriaJogos.alterar(Integer.parseInt(tfId.getText()), tfNome.getText(), taDescricao.getText())) {
+            JOptionPane.showMessageDialog(null, "Categoria alterada com sucesso!");
+            
+            tfId.setText("");
+            tfNome.setText("");
+            taDescricao.setText("");
+        }else{
+            JOptionPane.showMessageDialog(null, "Não foi possível alterar a categoria!");
+        }
         
-        tfId.setText("");
-        tfNome.setText("");
-    } else {
-        JOptionPane.showMessageDialog(null, "Não foi possível alterar a categoria!");
+        ((ListCategoriaJogos) Formularios.listCategoriaJogos).listarTodos();
+        
+        dispose();
     }
-    
-    ((ListCategoriaJogos) Formularios.listCategoria).listarTodos();
-    
-    dispose();
-}
-
     
     private void excluir(){
         DaoCategoriaJogos daoCategoria = new DaoCategoriaJogos();
@@ -235,12 +262,12 @@ private void alterar() {
             
             tfId.setText("");
             tfNome.setText("");
-            
+            taDescricao.setText("");
         }else{
             JOptionPane.showMessageDialog(null, "Não foi possível excluir a categoria!");
         }
         
-        ((ListCategoriaJogos) Formularios.listCategoria).listarTodos();
+        ((ListCategoriaJogos) Formularios.listCategoriaJogos).listarTodos();
         
         dispose();
     }
@@ -286,7 +313,10 @@ private void alterar() {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea taDescricao;
     private java.awt.TextField textField1;
     private javax.swing.JTextField tfId;
     private javax.swing.JTextField tfNome;

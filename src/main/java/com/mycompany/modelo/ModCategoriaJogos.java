@@ -9,17 +9,17 @@ package com.mycompany.modelo;
  * @author kaua.1880
  */
 public class ModCategoriaJogos {
-    private int id;
-    private String nome_categoria;
-  
+     private int id;
+    private String nome;
+    private String descricao;
 
     public ModCategoriaJogos() {
     }
 
-    public ModCategoriaJogos(int id, String nome) {
+    public ModCategoriaJogos(int id, String nome, String descricao) {
         this.id = id;
-        this.nome_categoria = nome_categoria;
-     
+        this.nome = nome;
+        this.descricao = descricao;
     }
 
     public int getId() {
@@ -30,16 +30,24 @@ public class ModCategoriaJogos {
         this.id = id;
     }
 
-    public String getNome_categoria() {
-        return nome_categoria;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNome_categoria(String nome_categoria) {
-        this.nome_categoria = nome_categoria;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     @Override
     public String toString() {
-        return "CategoriaJogos{" + "id=" + id + ", nome_categoria=" + nome_categoria + '}';
+        return "Categoria{" + "id=" + id + ", nome=" + nome + ", descricao=" + descricao + '}';
     }
 }

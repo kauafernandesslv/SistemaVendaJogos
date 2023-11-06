@@ -5,7 +5,9 @@
 package com.mycompany.visao.categoria;
 
 import com.mycompany.dao.DaoCategoriaJogos;
+import com.mycompany.dao.DaoCategoriaJogos;
 import com.mycompany.ferramentas.DadosTemporarios;
+import com.mycompany.modelo.ModCategoriaJogos;
 import com.mycompany.modelo.ModCategoriaJogos;
 import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
@@ -33,15 +35,15 @@ public class ListCategoriaJogos extends javax.swing.JFrame {
         try{
             DefaultTableModel defaultTableModel = (DefaultTableModel) tableCategoriaJogos.getModel();
             tableCategoriaJogos.setModel(defaultTableModel);
-            DaoCategoriaJogos daoCategoriaJogos = new DaoCategoriaJogos();
+            DaoCategoriaJogos categoriaJogos = new DaoCategoriaJogos();
             
-            ResultSet resultSet = daoCategoriaJogos.listarTodos();
+            ResultSet resultSet = categoriaJogos.listarTodos();
             defaultTableModel.setRowCount(0);
             while (resultSet.next()){
-                String categoria_id = resultSet.getString(1);
+                String id = resultSet.getString(1);
                 String nome = resultSet.getString(2);
-           
-                defaultTableModel.addRow(new Object[]{categoria_id, nome});
+                String descricao = resultSet.getString(3);
+                defaultTableModel.addRow(new Object[]{id, nome, descricao});
                 
               
             }
@@ -49,29 +51,29 @@ public class ListCategoriaJogos extends javax.swing.JFrame {
                  System.out.println(e.getMessage());
     }
     }
-         public void listarPorCategoria_id(int pId){
+         public void listarPorId(int pId){
         try{
             //Define o model da tabela.
             DefaultTableModel defaultTableModel = new DefaultTableModel();
 
-            defaultTableModel.addColumn("CATEGORIA_ID");
+            defaultTableModel.addColumn("ID");
             defaultTableModel.addColumn("NOME");
-       ;
+            defaultTableModel.addColumn("DESCRIÇÃO");
             
             tableCategoriaJogos.setModel(defaultTableModel);
 
-            DaoCategoriaJogos daoCategoria = new DaoCategoriaJogos();
+            DaoCategoriaJogos categoriaJogos = new DaoCategoriaJogos();
 
           
-            ResultSet resultSet = daoCategoria.listarPorId(pId);
+            ResultSet resultSet = categoriaJogos.listarPorId(pId);
             
             defaultTableModel.setRowCount(0);
             while (resultSet.next()){
-                String categoria_id = resultSet.getString(1);
+                String id = resultSet.getString(1);
                 String nome = resultSet.getString(2);
+                String descricao = resultSet.getString(3);
                 
-                
-                defaultTableModel.addRow(new Object[]{categoria_id, nome});
+                defaultTableModel.addRow(new Object[]{id, nome, descricao});
             }
         }catch(Exception e){
             System.out.println(e.getMessage());
@@ -82,31 +84,60 @@ public class ListCategoriaJogos extends javax.swing.JFrame {
             //Define o model da tabela.
             DefaultTableModel defaultTableModel = new DefaultTableModel();
 
-            defaultTableModel.addColumn("CATEGORIA_ID");
+            defaultTableModel.addColumn("ID");
             defaultTableModel.addColumn("NOME");
-           
+            defaultTableModel.addColumn("DESCRIÇÃO");
             
             tableCategoriaJogos.setModel(defaultTableModel);
 
-            DaoCategoriaJogos daoCategoria = new DaoCategoriaJogos();
+            DaoCategoriaJogos categoriaJogos = new DaoCategoriaJogos();
 
             //Atribui o resultset retornado a uma variável para ser usada.
-            ResultSet resultSet = daoCategoria.listarPorNome(pNome);
+            ResultSet resultSet = categoriaJogos.listarPorNome(pNome);
             
             defaultTableModel.setRowCount(0);
             while (resultSet.next()){
                 String id = resultSet.getString(1);
                 String nome = resultSet.getString(2);
+                String descricao = resultSet.getString(3);
                 
-                
-                defaultTableModel.addRow(new Object[]{id, nome});
+                defaultTableModel.addRow(new Object[]{id, nome, descricao});
             }
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
     }
     
-    
+  public void listarPorDescricao(String pDescricao){
+        try{
+            //Define o model da tabela.
+            DefaultTableModel defaultTableModel = new DefaultTableModel();
+
+            defaultTableModel.addColumn("ID");
+            defaultTableModel.addColumn("NOME");
+            defaultTableModel.addColumn("DESCRIÇÃO");
+            
+            tableCategoriaJogos.setModel(defaultTableModel);
+
+            DaoCategoriaJogos daoCategoriaJogos = new DaoCategoriaJogos();
+
+            
+            ResultSet resultSet = daoCategoriaJogos.listarPorDescricao(pDescricao);
+            
+            defaultTableModel.setRowCount(0);
+            while (resultSet.next()){
+                String id = resultSet.getString(1);
+                String nome = resultSet.getString(2);
+                String descricao = resultSet.getString(3);
+                
+                defaultTableModel.addRow(new Object[]{id, nome, descricao});
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }      
+     
+         
     
 
     /**
@@ -145,11 +176,11 @@ public class ListCategoriaJogos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome"
+                "ID", "Nome", "Descrição"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -234,28 +265,30 @@ public class ListCategoriaJogos extends javax.swing.JFrame {
             listarTodos();
              break;
             case 1:
-                listarPorCategoria_id(Integer.parseInt(tfFiltro.getText()));
+                listarPorId(Integer.parseInt(tfFiltro.getText()));
                 break;
             case 2:
                 listarPorNome(tfFiltro.getText());
                 break;
             case 3:
-               
+                listarPorDescricao(tfFiltro.getText());
+                break;
     }//GEN-LAST:event_btnBuscarActionPerformed
     }
     private void tableCategoriaJogosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCategoriaJogosMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 2){ 
-            ModCategoriaJogos modCategoria = new ModCategoriaJogos();
+            ModCategoriaJogos modCategoriaJogos = new ModCategoriaJogos();
 
-            modCategoria.setId(Integer.parseInt(String.valueOf(tableCategoriaJogos.getValueAt(tableCategoriaJogos.getSelectedRow(), 0))));
-            modCategoria.setNome_categoria(String.valueOf(tableCategoriaJogos.getValueAt(tableCategoriaJogos.getSelectedRow(), 1)));
-            
+            modCategoriaJogos.setId(Integer.parseInt(String.valueOf(tableCategoriaJogos.getValueAt(tableCategoriaJogos.getSelectedRow(), 0))));
+            modCategoriaJogos.setNome(String.valueOf(tableCategoriaJogos.getValueAt(tableCategoriaJogos.getSelectedRow(), 1)));
+            modCategoriaJogos.setDescricao(String.valueOf(tableCategoriaJogos.getValueAt(tableCategoriaJogos.getSelectedRow(), 2)));
 
-            DadosTemporarios.tempObject = (ModCategoriaJogos) modCategoria;
+      DadosTemporarios.tempObject = (ModCategoriaJogos) modCategoriaJogos;
 
-            CadCategoriaJogos cadCategoria = new CadCategoriaJogos();
-            cadCategoria.setVisible(true);
+
+            CadCategoriaJogos cadCategoriaJogos = new CadCategoriaJogos();
+            cadCategoriaJogos.setVisible(true);
         }
     }//GEN-LAST:event_tableCategoriaJogosMouseClicked
 
