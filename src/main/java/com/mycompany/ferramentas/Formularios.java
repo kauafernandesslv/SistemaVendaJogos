@@ -27,5 +27,9 @@ public class Formularios {
     public static JFrame listEndereco;
     public static JFrame cadPessoa;
     public static JFrame listPessoa;
+    public static JFrame cadProduto;
+    public static JFrame listProduto;
+    public static JFrame cadMarca;
+    public static JFrame listMarca;
     
 }
