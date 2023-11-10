@@ -4,11 +4,11 @@
  */
 package com.mycompany.visao.categoria;
 
-import com.mycompany.dao.DaoCategoriaJogos;
-import com.mycompany.dao.DaoCategoriaJogos;
+import com.mycompany.dao.DaoCategoria;
+import com.mycompany.dao.DaoCategoria;
 import com.mycompany.ferramentas.DadosTemporarios;
-import com.mycompany.modelo.ModCategoriaJogos;
-import com.mycompany.modelo.ModCategoriaJogos;
+import com.mycompany.modelo.ModCategoria;
+import com.mycompany.modelo.ModCategoria;
 import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 
@@ -35,7 +35,7 @@ public class ListCategoriaJogos extends javax.swing.JFrame {
         try{
             DefaultTableModel defaultTableModel = (DefaultTableModel) tableCategoriaJogos.getModel();
             tableCategoriaJogos.setModel(defaultTableModel);
-            DaoCategoriaJogos categoriaJogos = new DaoCategoriaJogos();
+            DaoCategoria categoriaJogos = new DaoCategoria();
             
             ResultSet resultSet = categoriaJogos.listarTodos();
             defaultTableModel.setRowCount(0);
@@ -62,7 +62,7 @@ public class ListCategoriaJogos extends javax.swing.JFrame {
             
             tableCategoriaJogos.setModel(defaultTableModel);
 
-            DaoCategoriaJogos categoriaJogos = new DaoCategoriaJogos();
+            DaoCategoria categoriaJogos = new DaoCategoria();
 
           
             ResultSet resultSet = categoriaJogos.listarPorId(pId);
@@ -90,7 +90,7 @@ public class ListCategoriaJogos extends javax.swing.JFrame {
             
             tableCategoriaJogos.setModel(defaultTableModel);
 
-            DaoCategoriaJogos categoriaJogos = new DaoCategoriaJogos();
+            DaoCategoria categoriaJogos = new DaoCategoria();
 
             //Atribui o resultset retornado a uma variável para ser usada.
             ResultSet resultSet = categoriaJogos.listarPorNome(pNome);
@@ -119,7 +119,7 @@ public class ListCategoriaJogos extends javax.swing.JFrame {
             
             tableCategoriaJogos.setModel(defaultTableModel);
 
-            DaoCategoriaJogos daoCategoriaJogos = new DaoCategoriaJogos();
+            DaoCategoria daoCategoriaJogos = new DaoCategoria();
 
             
             ResultSet resultSet = daoCategoriaJogos.listarPorDescricao(pDescricao);
@@ -278,13 +278,13 @@ public class ListCategoriaJogos extends javax.swing.JFrame {
     private void tableCategoriaJogosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCategoriaJogosMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 2){ 
-            ModCategoriaJogos modCategoriaJogos = new ModCategoriaJogos();
+            ModCategoria modCategoriaJogos = new ModCategoria();
 
             modCategoriaJogos.setId(Integer.parseInt(String.valueOf(tableCategoriaJogos.getValueAt(tableCategoriaJogos.getSelectedRow(), 0))));
             modCategoriaJogos.setNome(String.valueOf(tableCategoriaJogos.getValueAt(tableCategoriaJogos.getSelectedRow(), 1)));
             modCategoriaJogos.setDescricao(String.valueOf(tableCategoriaJogos.getValueAt(tableCategoriaJogos.getSelectedRow(), 2)));
 
-      DadosTemporarios.tempObject = (ModCategoriaJogos) modCategoriaJogos;
+      DadosTemporarios.tempObject = (ModCategoria) modCategoriaJogos;
 
 
             CadCategoriaJogos cadCategoriaJogos = new CadCategoriaJogos();

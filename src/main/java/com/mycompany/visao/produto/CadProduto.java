@@ -112,38 +112,63 @@ public class CadProduto extends javax.swing.JFrame {
             return false;
     }
 
-    private void inserir(){
-        DaoProduto daoProduto = new DaoProduto();
-        
-        if (daoProduto.inserir(Integer.parseInt(tfId.getText()), Integer.parseInt(tfIdCategoria.getText()), Integer.parseInt(tfIdMarca.getText()), tfNome.getText(), taDescricao.getText(), Double.parseDouble(tfPreco.getText()))){
+   private void inserir() {
+    DaoProduto daoProduto = new DaoProduto();
+
+    try {
+        int Id = Integer.parseInt(tfId.getText());
+        int IdCategoria = Integer.parseInt(tfIdCategoria.getText());
+        int IdMarca = Integer.parseInt(tfIdMarca.getText());
+        String Nome = tfNome.getText();
+        String Descricao = taDescricao.getText();
+        double Preco = Double.parseDouble(tfPreco.getText());
+
+        if (daoProduto.inserir(Id, IdCategoria, IdMarca, Nome, Descricao, Preco)) {
             JOptionPane.showMessageDialog(null, "Produto salvo com sucesso!");
-            
+
+            // Set the next available ID and clear input fields
             tfId.setText(String.valueOf(daoProduto.buscarProximoId()));
             tfNome.setText("");
             taDescricao.setText("");
             tfPreco.setText("");
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Não foi possível salvar o Produto!");
         }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Por favor, insira valores válidos nos campos numéricos.");
     }
-    
-    private void alterar(){
-        DaoProduto daoProduto = new DaoProduto();
-        
-        if (daoProduto.alterar(Integer.parseInt(tfId.getText()), Integer.parseInt(tfIdCategoria.getText()), Integer.parseInt(tfIdMarca.getText()), tfNome.getText(), taDescricao.getText(), Double.parseDouble(tfPreco.getText()))){
+}
+
+private void alterar() {
+    DaoProduto daoProduto = new DaoProduto();
+
+    try {
+        int Id = Integer.parseInt(tfId.getText());
+        int IdCategoria = Integer.parseInt(tfIdCategoria.getText());
+        int IdMarca = Integer.parseInt(tfIdMarca.getText());
+        String Nome = tfNome.getText();
+        String Descricao = taDescricao.getText();
+        double Preco = Double.parseDouble(tfPreco.getText());
+
+        if (daoProduto.alterar(Id, IdCategoria, IdMarca, Nome, Descricao, Preco)) {
             JOptionPane.showMessageDialog(null, "Produto alterado com sucesso!");
-            
+
+            // Set the next available ID and clear input fields
             tfId.setText(String.valueOf(daoProduto.buscarProximoId()));
             tfNome.setText("");
             taDescricao.setText("");
             tfPreco.setText("");
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Não foi possível alterar o produto!");
         }
-        
+
+        // Assuming Formularios.listProduto is an instance of ListProduto
         ((ListProduto) Formularios.listProduto).listarTodos();
-        
+
         dispose();
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Por favor, insira valores válidos nos campos numéricos.");
+    }
     }
     
     private void excluir(){
@@ -294,6 +319,11 @@ public class CadProduto extends javax.swing.JFrame {
         btnExcluir.setText("Excluir");
 
         tfIdCategoria.setText("idCategoria");
+        tfIdCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfIdCategoriaActionPerformed(evt);
+            }
+        });
 
         tfIdMarca.setText("idMarca");
 
@@ -310,12 +340,6 @@ public class CadProduto extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(tfId, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfIdCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfIdMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jcbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2))
@@ -330,7 +354,13 @@ public class CadProduto extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnAcao)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnExcluir)))
+                                .addComponent(btnExcluir))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(tfId, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfIdCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfIdMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 77, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -407,7 +437,7 @@ public class CadProduto extends javax.swing.JFrame {
         if (btnAcao.getText() == Constantes.BTN_SALVAR_TEXT){
             inserir();
 
-            if(Formularios.cadCategoria != null){
+            if(Formularios.cadCategoriaJogos != null){
                 ((CadProduto) Formularios.cadProduto).carregarCategorias();
                 dispose();
             }else if(Formularios.cadMarca != null){
@@ -421,6 +451,10 @@ public class CadProduto extends javax.swing.JFrame {
     private void jcbMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbMarcaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbMarcaActionPerformed
+
+    private void tfIdCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIdCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfIdCategoriaActionPerformed
 
     /**
      * @param args the command line arguments

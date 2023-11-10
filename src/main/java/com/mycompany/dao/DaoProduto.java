@@ -12,214 +12,346 @@ import static com.mycompany.ferramentas.BancoDeDadosMySql.setResultado;
 import static com.mycompany.ferramentas.BancoDeDadosMySql.setStatement;
 import java.sql.ResultSet;
 
-
 /**
  *
  * @author kaua.1880
  */
 public class DaoProduto extends BancoDeDadosMySql{
-     private String sql;
-
-     public Boolean inserir(int idJogo, String titulo, String descricao, Double preco, String classificacao, String desenvolvedor, String dataLancamento){
-    try {
-        sql = "INSERT INTO JOGOS (IDJOGO, TITULO, DESCRICAO, PRECO, CLASSIFICACAO, DESENVOLVEDOR, DATA_LANCAMENTO) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        
-        setStatement(getConexao().prepareStatement(sql));
-        
-        getStatement().setInt(1, idJogo);
-        getStatement().setString(2, titulo);
-        getStatement().setString(3, descricao);
-        getStatement().setDouble(4, preco);
-        getStatement().setString(5, classificacao);
-        getStatement().setString(6, desenvolvedor);
-        getStatement().setString(7, dataLancamento);
-        
-        getStatement().executeUpdate();
-        
-        return true;
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-        return false;
-    }}
-     
-public Boolean alterar(int idJogo, String titulo, String descricao, Double preco, String classificacao, String desenvolvedor, String dataLancamento){
-    try {
-        sql = "UPDATE JOGOS SET TITULO = ?, DESCRICAO = ?, PRECO = ?, CLASSIFICACAO = ?, DESENVOLVEDOR = ?, DATA_LANCAMENTO = ? WHERE IDJOGO = ?";
-        
-        setStatement(getConexao().prepareStatement(sql));
-        
-        getStatement().setString(1, titulo);
-        getStatement().setString(2, descricao);
-        getStatement().setDouble(3, preco);
-        getStatement().setString(4, classificacao);
-        getStatement().setString(5, desenvolvedor);
-        getStatement().setString(6, dataLancamento);
-        getStatement().setInt(7, idJogo);
-        
-        getStatement().executeUpdate();
-        
-        return true;
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-        return false;
-    }
-}
-
-public Boolean excluir(int idJogo){
-    try {
-        sql = "DELETE FROM JOGOS WHERE IDJOGO = ?";
-        
-        setStatement(getConexao().prepareStatement(sql));
-        
-        getStatement().setInt(1, idJogo);
-        
-        getStatement().executeUpdate();
-        
-        return true;
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-        return false;
-    }
-}
-
-public ResultSet listarTodosJogos(){
-    try {
-        sql = 
-            "SELECT IDJOGO, TITULO, DESCRICAO, PRECO, CLASSIFICACAO, DESENVOLVEDOR, DATA_LANCAMENTO FROM JOGOS";
-        
-        setStatement(getConexao().prepareStatement(sql));
-        
-        setResultado(getStatement().executeQuery());
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
+    private String sql;
+    
+    public Boolean inserir(int id, int idCategoria, int idMarca, String nome, String descricao, Double preco){
+        try{
+            sql = "INSERT INTO PRODUTO (ID, ID_CATEGORIA, ID_MARCA, NOME, DESCRICAO, PRECO) VALUES (?, ?, ?, ?, ?, ?)";
+            
+            setStatement(getConexao().prepareStatement(sql));
+            
+            getStatement().setInt(1, id);
+            getStatement().setInt(2, idCategoria);
+            getStatement().setInt(3, idMarca);
+            getStatement().setString(4, nome);
+            getStatement().setString(5, descricao);
+            getStatement().setDouble(6, preco);
+            
+            getStatement().executeUpdate();
+            
+            return true;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
     
-    return getResultado();
-}
-
-public ResultSet listarJogoPorId(int idJogo){
-    try {
-        sql = 
-            "SELECT IDJOGO, TITULO, DESCRICAO, PRECO, CLASSIFICACAO, DESENVOLVEDOR, DATA_LANCAMENTO FROM JOGOS WHERE IDJOGO = ?";
-        
-        setStatement(getConexao().prepareStatement(sql));
-        
-        getStatement().setInt(1, idJogo);
-        
-        setResultado(getStatement().executeQuery());
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
+    public Boolean alterar(int id, int idCategoria, int idMarca, String nome, String descricao, Double preco){
+        try{
+            sql = "UPDATE PRODUTO SET ID_CATEGORIA = ?, ID_MARCA = ?, NOME = ?, DESCRICAO = ?, PRECO = ? WHERE ID = ?";
+            
+            setStatement(getConexao().prepareStatement(sql));
+            
+            getStatement().setInt(6, id);
+            getStatement().setInt(1, idCategoria);
+            getStatement().setInt(2, idMarca);
+            getStatement().setString(3, nome);
+            getStatement().setString(4, descricao);
+            getStatement().setDouble(5, preco);
+            
+            getStatement().executeUpdate();
+            
+            return true;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
     
-    return getResultado();
-}
-
-public ResultSet listarJogosPorTitulo(String titulo){
-    try {
-        sql = 
-            "SELECT IDJOGO, TITULO, DESCRICAO, PRECO, CLASSIFICACAO, DESENVOLVEDOR, DATA_LANCAMENTO FROM JOGOS WHERE TITULO LIKE ?";
-        
-        setStatement(getConexao().prepareStatement(sql));
-        
-        getStatement().setString(1, titulo + "%");
-        
-        setResultado(getStatement().executeQuery());
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
+    public Boolean excluir(int id){
+        try{
+            sql = "DELETE FROM PRODUTO WHERE ID = ?";
+            
+            setStatement(getConexao().prepareStatement(sql));
+            
+            getStatement().setInt(1, id);
+            
+            getStatement().executeUpdate();
+            
+            return true;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
     
-    return getResultado();
-}
-
-public ResultSet listarJogosPorDesenvolvedor(String desenvolvedor){
-    try {
-        sql = 
-            "SELECT IDJOGO, TITULO, DESCRICAO, PRECO, CLASSIFICACAO, DESENVOLVEDOR, DATA_LANCAMENTO FROM JOGOS WHERE DESENVOLVEDOR LIKE ?";
+    public ResultSet listarTodos(){
+        try{
+            sql = 
+                " SELECT                            " +
+                "   P.ID AS ID,                     " +
+                "   C.NOME AS CATEGORIA,            " +
+                "   M.NOME AS MARCA,                " +
+                "   P.NOME AS NOME,                 " +
+                "   P.DESCRICAO AS DESCRICAO,       " +
+                "   P.PRECO AS PRECO                " +
+                " FROM                              " +
+                "   PRODUTO P                       " +
+                " JOIN CATEGORIA C ON               " +
+                "   C.ID = P.ID_CATEGORIA           " +
+                " JOIN MARCA M ON                   " +
+                "   M.ID = P.ID_MARCA               " ;
+            
+            setStatement(getConexao().prepareStatement(sql));
+            
+            setResultado(getStatement().executeQuery());
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
         
-        setStatement(getConexao().prepareStatement(sql));
-        
-        getStatement().setString(1, desenvolvedor + "%");
-        
-        setResultado(getStatement().executeQuery());
-    } catch (Exception e) {
-       System.out.println(e.getMessage());
+        return getResultado();
     }
     
-    return getResultado();
-}
-
-public ResultSet listarJogosPorClassificacao(String classificacao){
-    try {
-        sql = 
-            "SELECT IDJOGO, TITULO, DESCRICAO, PRECO, CLASSIFICACAO, DESENVOLVEDOR, DATA_LANCAMENTO FROM JOGOS WHERE CLASSIFICACAO LIKE ?";
+    public ResultSet listarPorId(int id){
+        try{
+            sql = 
+                " SELECT                            " +
+                "   P.ID AS ID,                     " +
+                "   C.NOME AS CATEGORIA,            " +
+                "   M.NOME AS MARCA,                " +
+                "   P.NOME AS NOME,                 " +
+                "   P.DESCRICAO AS DESCRICAO,        " +
+                "   P.PRECO AS PRECO                " +
+                " FROM                              " +
+                "   PRODUTO P                       " +
+                " JOIN CATEGORIA C ON               " +
+                "   C.ID = P.ID_CATEGORIA           " +
+                " JOIN MARCA M ON                   " +
+                "   M.ID = P.ID_MARCA               " +
+                " WHERE P.ID = ?                    " ;
+            
+            setStatement(getConexao().prepareStatement(sql));
+            
+            getStatement().setInt(1, id);
+            
+            setResultado(getStatement().executeQuery());
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
         
-        setStatement(getConexao().prepareStatement(sql));
-        
-        getStatement().setString(1, classificacao + "%");
-        
-        setResultado(getStatement().executeQuery());
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
+        return getResultado();
     }
     
-    return getResultado();
-}
-
-public ResultSet listarJogosPorPrecoMaiorQue(Double preco){
-    try {
-        sql = 
-            "SELECT IDJOGO, TITULO, DESCRICAO, PRECO, CLASSIFICACAO, DESENVOLVEDOR, DATA_LANCAMENTO FROM JOGOS WHERE PRECO > ?";
+    public ResultSet listarPorCategoria(String categoria){
+        try{
+            sql = 
+                " SELECT                            " +
+                "   P.ID AS ID,                     " +
+                "   C.NOME AS CATEGORIA,            " +
+                "   M.NOME AS MARCA,                " +
+                "   P.NOME AS NOME,                 " +
+                "   P.DESCRICAO AS DESCRICAO,       " +
+                "   P.PRECO AS PRECO                " +
+                " FROM                              " +
+                "   PRODUTO P                       " +
+                " JOIN CATEGORIA C ON               " +
+                "   C.ID = P.ID_CATEGORIA           " +
+                " JOIN MARCA M ON                   " +
+                "   M.ID = P.ID_MARCA               " +
+                " WHERE C.NOME LIKE ?               " ;
+            
+            setStatement(getConexao().prepareStatement(sql));
+            
+            getStatement().setString(1, categoria + "%");
+            
+            setResultado(getStatement().executeQuery());
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
         
-        setStatement(getConexao().prepareStatement(sql));
-        
-        getStatement().setDouble(1, preco);
-        
-        setResultado(getStatement().executeQuery());
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
+        return getResultado();
     }
     
-    return getResultado();
-}
-
-public ResultSet listarJogosPorPrecoMenorQue(Double preco){
-    try {
-        sql = 
-            "SELECT IDJOGO, TITULO, DESCRICAO, PRECO, CLASSIFICACAO, DESENVOLVEDOR, DATA_LANCAMENTO FROM JOGOS WHERE PRECO < ?";
+    public ResultSet listarPorMarca(String marca){
+        try{
+            sql = 
+                " SELECT                            " +
+                "   P.ID AS ID,                     " +
+                "   C.NOME AS CATEGORIA,            " +
+                "   M.NOME AS MARCA,                " +
+                "   P.NOME AS NOME,                 " +
+                "   P.DESCRICAO AS DESCRICAO,       " +
+                "   P.PRECO AS PRECO                " +
+                " FROM                              " +
+                "   PRODUTO P                       " +
+                " JOIN CATEGORIA C ON               " +
+                "   C.ID = P.ID_CATEGORIA           " +
+                " JOIN MARCA M ON                   " +
+                "   M.ID = P.ID_MARCA               " +
+                " WHERE M.NOME LIKE ?               " ;
+            
+            setStatement(getConexao().prepareStatement(sql));
+            
+            getStatement().setString(1, marca + "%");
+            
+            setResultado(getStatement().executeQuery());
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
         
-        setStatement(getConexao().prepareStatement(sql));
-        
-        getStatement().setDouble(1, preco);
-        
-        setResultado(getStatement().executeQuery());
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
+        return getResultado();
     }
     
-    return getResultado();
-}
-
-public ResultSet listarJogosPorPrecoIgualA(Double preco){
-    try {
-        sql = 
-            "SELECT IDJOGO, TITULO, DESCRICAO, PRECO, CLASSIFICACAO, DESENVOLVEDOR, DATA_LANCAMENTO FROM JOGOS WHERE PRECO = ?";
+    public ResultSet listarPorNome(String nome){
+        try{
+            sql = 
+                " SELECT                            " +
+                "   P.ID AS ID,                     " +
+                "   C.NOME AS CATEGORIA,            " +
+                "   M.NOME AS MARCA,                " +
+                "   P.NOME AS NOME,                 " +
+                "   P.DESCRICAO AS DESCRICAO,       " +
+                "   P.PRECO AS PRECO                " +
+                " FROM                              " +
+                "   PRODUTO P                       " +
+                " JOIN CATEGORIA C ON               " +
+                "   C.ID = P.ID_CATEGORIA           " +
+                " JOIN MARCA M ON                   " +
+                "   M.ID = P.ID_MARCA               " +
+                " WHERE P.NOME LIKE ?               " ;
+            
+            setStatement(getConexao().prepareStatement(sql));
+            
+            getStatement().setString(1, nome + "%");
+            
+            setResultado(getStatement().executeQuery());
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
         
-        setStatement(getConexao().prepareStatement(sql));
-        
-        getStatement().setDouble(1, preco);
-        
-        setResultado(getStatement().executeQuery());
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
+        return getResultado();
     }
     
-    return getResultado();
-}
+    public ResultSet listarPorDescricao(String descricao){
+        try{
+            sql = 
+                " SELECT                            " +
+                "   P.ID AS ID,                     " +
+                "   C.NOME AS CATEGORIA,            " +
+                "   M.NOME AS MARCA,                " +
+                "   P.NOME AS NOME,                 " +
+                "   P.DESCRICAO AS DESCRICAO,       " +
+                "   P.PRECO AS PRECO                " +
+                " FROM                              " +
+                "   PRODUTO P                       " +
+                " JOIN CATEGORIA C ON               " +
+                "   C.ID = P.ID_CATEGORIA           " +
+                " JOIN MARCA M ON                   " +
+                "   M.ID = P.ID_MARCA               " +
+                " WHERE P.DESCRICAO LIKE ?          " ;
+            
+            setStatement(getConexao().prepareStatement(sql));
+            
+            getStatement().setString(1, descricao + "%");
+            
+            setResultado(getStatement().executeQuery());
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+        return getResultado();
+    }
+    
+    public ResultSet listarPorPrecoMaiorQue(Double preco){
+        try{
+            sql = 
+                " SELECT                            " +
+                "   P.ID AS ID,                     " +
+                "   C.NOME AS CATEGORIA,            " +
+                "   M.NOME AS MARCA,                " +
+                "   P.NOME AS NOME,                 " +
+                "   P.DESCRICAO AS DESCRICAO,        " +
+                "   P.PRECO AS PRECO                " +
+                " FROM                              " +
+                "   PRODUTO P                       " +
+                " JOIN CATEGORIA C ON               " +
+                "   C.ID = P.ID_CATEGORIA           " +
+                " JOIN MARCA M ON                   " +
+                "   M.ID = P.ID_MARCA               " +
+                " WHERE P.PRECO > ?                 " ;
+            
+            setStatement(getConexao().prepareStatement(sql));
+            
+            getStatement().setDouble(1, preco);
+            
+            setResultado(getStatement().executeQuery());
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+        return getResultado();
+    }
+    
+    public ResultSet listarPorPrecoMenorQue(Double preco){
+        try{
+            sql = 
+                " SELECT                            " +
+                "   P.ID AS ID,                     " +
+                "   C.NOME AS CATEGORIA,            " +
+                "   M.NOME AS MARCA,                " +
+                "   P.NOME AS NOME,                 " +
+                "   P.DESCRICAO AS DESCRICAO,        " +
+                "   P.PRECO AS PRECO                " +
+                " FROM                              " +
+                "   PRODUTO P                       " +
+                " JOIN CATEGORIA C ON               " +
+                "   C.ID = P.ID_CATEGORIA           " +
+                " JOIN MARCA M ON                   " +
+                "   M.ID = P.ID_MARCA               " +
+                " WHERE P.PRECO < ?                 " ;
+            
+            setStatement(getConexao().prepareStatement(sql));
+            
+            getStatement().setDouble(1, preco);
+            
+            setResultado(getStatement().executeQuery());
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+        return getResultado();
+    }
+    
+    public ResultSet listarPorPrecoIgualA(Double preco){
+        try{
+            sql = 
+                " SELECT                            " +
+                "   P.ID AS ID,                     " +
+                "   C.NOME AS CATEGORIA,            " +
+                "   M.NOME AS MARCA,                " +
+                "   P.NOME AS NOME,                 " +
+                "   P.DESCRICAO AS DESCRICAO,        " +
+                "   P.PRECO AS PRECO                " +
+                " FROM                              " +
+                "   PRODUTO P                       " +
+                " JOIN CATEGORIA C ON               " +
+                "   C.ID = P.ID_CATEGORIA           " +
+                " JOIN MARCA M ON                   " +
+                "   M.ID = P.ID_MARCA               " +
+                " WHERE P.PRECO = ?                 " ;
+            
+            setStatement(getConexao().prepareStatement(sql));
+            
+            getStatement().setDouble(1, preco);
+            
+            setResultado(getStatement().executeQuery());
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+        return getResultado();
+    }
+    
     public int buscarProximoId(){
         int id = 0;
         
         try{
-            sql = "SELECT IFNULL(MAX(ID), 0) + 1 FROM JOGOS";
+            sql = "SELECT IFNULL(MAX(ID), 0) + 1 FROM PRODUTO";
             
             setStatement(getConexao().prepareStatement(sql));
             
@@ -234,4 +366,7 @@ public ResultSet listarJogosPorPrecoIgualA(Double preco){
         
         return id;
     }
-    }
+}
+ 
+    
+

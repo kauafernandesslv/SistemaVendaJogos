@@ -10,7 +10,7 @@ import static com.mycompany.ferramentas.BancoDeDadosMySql.getResultado;
 import static com.mycompany.ferramentas.BancoDeDadosMySql.getStatement;
 import static com.mycompany.ferramentas.BancoDeDadosMySql.setResultado;
 import static com.mycompany.ferramentas.BancoDeDadosMySql.setStatement;
-import com.mycompany.modelo.ModCategoriaJogos;
+import com.mycompany.modelo.ModCategoria;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  *
  * @author kaua.1880
  */
-public class DaoCategoriaJogos extends BancoDeDadosMySql{
+public class DaoCategoria extends BancoDeDadosMySql{
     
     private String sql; 
     

@@ -8,15 +8,15 @@ package com.mycompany.modelo;
  *
  * @author kaua.1880
  */
-public class ModCategoriaJogos {
+public class ModCategoria {
      private int id;
     private String nome;
     private String descricao;
 
-    public ModCategoriaJogos() {
+    public ModCategoria() {
     }
 
-    public ModCategoriaJogos(int id, String nome, String descricao) {
+    public ModCategoria(int id, String nome, String descricao) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;

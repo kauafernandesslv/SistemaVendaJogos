@@ -6,7 +6,7 @@ package com.mycompany.visao.pais;
 
 import com.mycompany.dao.DaoPais;
 import com.mycompany.ferramentas.DadosTemporarios;
-import com.mycompany.modelo.ModCategoriaJogos;
+import com.mycompany.modelo.ModCategoria;
 import com.mycompany.modelo.ModPais;
 import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;

@@ -4,16 +4,16 @@
  */
 package com.mycompany.visao.categoria;
 
-import com.mycompany.dao.DaoCategoriaJogos;
+import com.mycompany.dao.DaoCategoria;
 import com.mycompany.ferramentas.Constantes;
 import com.mycompany.ferramentas.DadosTemporarios;
 import com.mycompany.ferramentas.Formularios;
-import com.mycompany.modelo.ModCategoriaJogos;
+import com.mycompany.modelo.ModCategoria;
 import javax.swing.JOptionPane;
 import com.mycompany.ferramentas.Constantes;
 import com.mycompany.ferramentas.DadosTemporarios;
 import com.mycompany.ferramentas.Formularios;
-import com.mycompany.modelo.ModCategoriaJogos;
+import com.mycompany.modelo.ModCategoria;
 
 import javax.swing.JOptionPane;
 
@@ -29,7 +29,7 @@ public class CadCategoriaJogos extends javax.swing.JFrame {
     public CadCategoriaJogos() {
         initComponents();
      if(!existeDadosTemporarios()){
-            DaoCategoriaJogos DaoCategoriaJogos = new DaoCategoriaJogos();
+            DaoCategoria DaoCategoriaJogos = new DaoCategoria();
 
             int id = DaoCategoriaJogos.buscarProximoId(); 
             if (id > 0)
@@ -48,10 +48,10 @@ public class CadCategoriaJogos extends javax.swing.JFrame {
     }
     
     private Boolean existeDadosTemporarios(){        
-        if(DadosTemporarios.tempObject instanceof ModCategoriaJogos){
-            int id = ((ModCategoriaJogos) DadosTemporarios.tempObject).getId();
-            String nome = ((ModCategoriaJogos) DadosTemporarios.tempObject).getNome();
-            String descricao = ((ModCategoriaJogos) DadosTemporarios.tempObject).getDescricao();
+        if(DadosTemporarios.tempObject instanceof ModCategoria){
+            int id = ((ModCategoria) DadosTemporarios.tempObject).getId();
+            String nome = ((ModCategoria) DadosTemporarios.tempObject).getNome();
+            String descricao = ((ModCategoria) DadosTemporarios.tempObject).getDescricao();
             
             tfId.setText(String.valueOf(id));
             tfNome.setText(nome);
@@ -223,7 +223,7 @@ public class CadCategoriaJogos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomeActionPerformed
 private void inserir() {
-    DaoCategoriaJogos daoCategoriaJogos = new DaoCategoriaJogos();
+    DaoCategoria daoCategoriaJogos = new DaoCategoria();
     
     if (daoCategoriaJogos.inserir(Integer.parseInt(tfId.getText()), tfNome.getText(), taDescricao.getText())) {
             JOptionPane.showMessageDialog(null, "Categoria salva com sucesso!");
@@ -237,7 +237,7 @@ private void inserir() {
     }
     
    private void alterar() {
-    DaoCategoriaJogos categoriaJogos = new DaoCategoriaJogos();
+    DaoCategoria categoriaJogos = new DaoCategoria();
     
     if (categoriaJogos.alterar(Integer.parseInt(tfId.getText()), tfNome.getText(), taDescricao.getText())) {
             JOptionPane.showMessageDialog(null, "Categoria alterada com sucesso!");
@@ -255,7 +255,7 @@ private void inserir() {
     }
     
     private void excluir(){
-        DaoCategoriaJogos daoCategoria = new DaoCategoriaJogos();
+        DaoCategoria daoCategoria = new DaoCategoria();
         
         if (daoCategoria.excluir(Integer.parseInt(tfId.getText()))){
             JOptionPane.showMessageDialog(null, "Categoria " + tfNome.getText() + " excluída com sucesso!");

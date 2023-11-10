@@ -1,5 +1,7 @@
+C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\dao\DaoCategoria.java
 C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\visao\pais\CadPais.java
 C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\ferramentas\Formularios.java
+C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\modelo\ModCategoria.java
 C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\modelo\ModMarca.java
 C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\visao\categoria\ListCategoriaJogos.java
 C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\visao\cidade\CadCidade.java
@@ -15,7 +17,6 @@ C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\c
 C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\modelo\ModPais.java
 C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\visao\estado_civil\CadEstado_civil.java
 C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\dao\DaoPessoa.java
-C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\modelo\ModCategoriaJogos.java
 C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\visao\categoria\CadCategoriaJogos.java
 C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\visao\estado_civil\ListEstado_civil.java
 C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\dao\DaoProduto.java
@@ -36,7 +37,8 @@ C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\c
 C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\visao\endereco\CadEndereco.java
 C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\visao\cidade\ListCidade.java
 C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\ferramentas\Constantes.java
-C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\dao\DaoCategoriaJogos.java
+C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\visao\produto\CadProduto.java
+C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\visao\produto\ListProduto.java
 C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\visao\marca\ListMarca.java
 C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\dao\DaoPais.java
 C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\java\com\mycompany\ferramentas\BancoDeDadosMySql.java
