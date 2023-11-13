@@ -10,6 +10,8 @@ import com.mycompany.visao.categoria.CadCategoriaJogos;
 import com.mycompany.visao.categoria.ListCategoriaJogos;
 import com.mycompany.visao.cidade.CadCidade;
 import com.mycompany.visao.cidade.ListCidade;
+import com.mycompany.visao.cliente.MenuPrincipalFrontEnd;
+import com.mycompany.visao.cliente.TelaLogin;
 import com.mycompany.visao.endereco.CadEndereco;
 import com.mycompany.visao.endereco.ListEndereco;
 import com.mycompany.visao.estado.CadEstado;
@@ -65,6 +67,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         miCadrastroCategoria = new javax.swing.JMenuItem();
@@ -86,6 +89,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         miConsultaEstado_civil = new javax.swing.JMenuItem();
         miConsultaMarca = new javax.swing.JMenuItem();
         miConsultaProduto = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        miMenuPrincipal = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,6 +122,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Downloads\\images (1).jfif")); // NOI18N
 
         jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Downloads\\images (2).jfif")); // NOI18N
+
+        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Downloads\\tela.jfif")); // NOI18N
+        jLabel8.setAlignmentX(1.2F);
+        jLabel8.setAlignmentY(1.2F);
 
         jMenu1.setText("Cadastros");
 
@@ -270,19 +279,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(ListCategoria);
 
+        jMenu2.setText("menu de compras");
+
+        miMenuPrincipal.setText("menu");
+        miMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miMenuPrincipalActionPerformed(evt);
+            }
+        });
+        jMenu2.add(miMenuPrincipal);
+
+        jMenuBar1.add(jMenu2);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addGap(0, 25, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
@@ -292,6 +306,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -300,7 +324,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 430, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -433,7 +459,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void miCadastroProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastroProdutoActionPerformed
         // TODO add your handling code here:
      if (Formularios.cadProduto == null)
-        Formularios.cadProduto = new CadMarca();
+        Formularios.cadProduto = new CadProduto();
 
         Formularios.cadProduto.setVisible(true);
     }//GEN-LAST:event_miCadastroProdutoActionPerformed
@@ -468,6 +494,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
              JOptionPane.showMessageDialog(null,"sim um felps");
     }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void miMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miMenuPrincipalActionPerformed
+        // TODO add your handling code here:
+            if (Formularios.menuPrincipalFrontEnd == null)
+        Formularios.menuPrincipalFrontEnd = new MenuPrincipalFrontEnd();
+
+        Formularios.menuPrincipalFrontEnd.setVisible(true);
+    }//GEN-LAST:event_miMenuPrincipalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -513,7 +547,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem miCadastroCidade;
     private javax.swing.JMenuItem miCadastroEndereco;
@@ -533,5 +569,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem miConsultaPais;
     private javax.swing.JMenuItem miConsultaPessoa;
     private javax.swing.JMenuItem miConsultaProduto;
+    private javax.swing.JMenuItem miMenuPrincipal;
     // End of variables declaration//GEN-END:variables
 }

@@ -31,5 +31,9 @@ public class Formularios {
     public static JFrame listProduto;
     public static JFrame cadMarca;
     public static JFrame listMarca;
-    
+    public static JFrame menuPrincipalFrontEnd;
+    public static JDialog telaLogin;
+    public static JFrame telaVenda;
+    public static JDialog telaAlteracaoSenha;
 }
+
