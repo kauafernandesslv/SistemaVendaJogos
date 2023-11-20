@@ -35,5 +35,6 @@ public class Formularios {
     public static JDialog telaLogin;
     public static JFrame telaVenda;
     public static JDialog telaAlteracaoSenha;
+     public static JFrame MenuPrincipal;
 }
 

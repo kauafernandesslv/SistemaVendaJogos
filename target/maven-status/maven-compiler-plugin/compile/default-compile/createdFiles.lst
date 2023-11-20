@@ -12,7 +12,6 @@ com\mycompany\dao\DaoCategoria.class
 com\mycompany\visao\cidade\CadCidade$5.class
 com\mycompany\visao\estado\ListEstado$5.class
 com\mycompany\sistemavendasjogos\SistemaVendasJogos.class
-com\mycompany\outros\BemVindo$1.class
 com\mycompany\visao\endereco\CadEndereco$3.class
 com\mycompany\visao\produto\ListProduto$1.class
 com\mycompany\visao\marca\CadMarca.class
@@ -45,6 +44,7 @@ com\mycompany\outros\MenuPrincipal$12.class
 com\mycompany\visao\cidade\CadCidade$3.class
 com\mycompany\visao\marca\CadMarca$3.class
 com\mycompany\visao\produto\CadProduto$2.class
+com\mycompany\outros\TelaInicial$1.class
 com\mycompany\outros\MenuPrincipal$11.class
 com\mycompany\outros\MenuPrincipal$21.class
 com\mycompany\visao\categoria\ListCategoriaJogos.class
@@ -110,6 +110,7 @@ com\mycompany\visao\marca\ListMarca$2.class
 com\mycompany\outros\MenuPrincipal$13.class
 com\mycompany\outros\MenuPrincipal$23.class
 com\mycompany\visao\cidade\ListCidade$2.class
+com\mycompany\outros\TelaInicial$2.class
 com\mycompany\visao\produto\CadProduto$1.class
 com\mycompany\ferramentas\Constantes.class
 com\mycompany\visao\cliente\TelaAlteracaoSenha$1.class
@@ -136,8 +137,10 @@ com\mycompany\visao\estado\CadEstado$2.class
 com\mycompany\dao\DaoEstado.class
 com\mycompany\modelo\ModCidade.class
 com\mycompany\visao\endereco\CadEndereco$4.class
+com\mycompany\outros\TelaInicial.class
 com\mycompany\visao\estado_civil\ListEstado_civil.class
 com\mycompany\visao\categoria\ListCategoriaJogos$6.class
+com\mycompany\outros\TelaInicial$4.class
 com\mycompany\visao\marca\ListMarca.class
 com\mycompany\outros\MenuPrincipal$3.class
 com\mycompany\visao\cliente\TelaLogin.class
@@ -170,7 +173,7 @@ com\mycompany\dao\DaoPedido.class
 com\mycompany\visao\pais\CadPais.class
 com\mycompany\visao\pessoa\ListPessoa.class
 com\mycompany\visao\categoria\ListCategoriaJogos$5.class
-com\mycompany\outros\BemVindo.class
+com\mycompany\outros\TelaInicial$3.class
 com\mycompany\visao\cidade\ListCidade$4.class
 com\mycompany\visao\endereco\ListEndereco$2.class
 com\mycompany\visao\estado\ListEstado$3.class
@@ -180,6 +183,5 @@ com\mycompany\visao\cliente\TelaLogin$1.class
 com\mycompany\visao\estado\ListEstado.class
 com\mycompany\visao\estado_civil\ListEstado_civil$1.class
 com\mycompany\visao\pais\ListPais$3.class
-com\mycompany\outros\BemVindo$2.class
 com\mycompany\visao\cliente\TelaAlteracaoSenha$2.class
 com\mycompany\visao\produto\CadProduto$7.class
