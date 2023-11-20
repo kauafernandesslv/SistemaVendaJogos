@@ -39,7 +39,7 @@ public class MenuPrincipalFrontEnd extends javax.swing.JFrame {
         
         setLocationRelativeTo(null);
         
-        setExtendedState(MAXIMIZED_BOTH);
+        
         
         if (!BancoDeDadosMySql.conectar()){
             JOptionPane.showMessageDialog(null, "Não foi possível conectar ao banco de dados. O sistema será finalizado.");
