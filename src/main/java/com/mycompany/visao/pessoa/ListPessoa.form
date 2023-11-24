@@ -110,7 +110,7 @@
                     <Column editable="false" title="nome" type="java.lang.Object"/>
                     <Column editable="false" title="sobrenome" type="java.lang.Object"/>
                     <Column editable="false" title="genero" type="java.lang.Object"/>
-                    <Column editable="false" title="cep" type="java.lang.Object"/>
+                    <Column editable="false" title="telefone" type="java.lang.Object"/>
                     <Column editable="false" title="email" type="java.lang.Object"/>
                     <Column editable="false" title="estado civil" type="java.lang.Object"/>
                   </Table>

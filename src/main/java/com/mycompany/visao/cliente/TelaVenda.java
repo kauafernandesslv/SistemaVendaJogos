@@ -391,7 +391,7 @@ private void calculaTotalCompra(Double preco, int quantidade){
             
             daoPedido.inserir(id, idCliente, idProduto, dataPedido, quantidade);
             
-            JOptionPane.showMessageDialog(null, "Obrigado, " + DadosTemporarios.usuarioLogado + ", pela sua compra, seu produto chegará em breve!");
+            JOptionPane.showMessageDialog(null, "Obrigado, " + DadosTemporarios.usuarioLogado + ", pela sua compra,talvez seu produto chegue ou nao!");
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Houve um problema ao tentar salvar o pedido!");
         }

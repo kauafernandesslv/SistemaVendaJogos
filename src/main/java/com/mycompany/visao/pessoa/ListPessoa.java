@@ -58,6 +58,8 @@ public class ListPessoa extends javax.swing.JFrame {
              String estado_civil = resultSet.getString(9);
              String cidade = resultSet.getString(10);
              String cep = resultSet.getString(11);
+             
+            
                 
                 defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep});
             }
@@ -91,8 +93,9 @@ public class ListPessoa extends javax.swing.JFrame {
                 String estado_civil = resultSet.getString(9);
                 String cidade = resultSet.getString(10);
                 String cep = resultSet.getString(11);
+               
                 
-                defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep});
+             defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep,});
             }
         }catch(Exception e){
             System.out.println(e.getMessage());
@@ -124,8 +127,9 @@ public class ListPessoa extends javax.swing.JFrame {
                 String estado_civil = resultSet.getString(9);
                 String cidade = resultSet.getString(10);
                 String cep = resultSet.getString(11);
+               
                 
-                defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep});
+             defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep,});
             }
         }catch(Exception e){
             System.out.println(e.getMessage());
@@ -157,8 +161,8 @@ public class ListPessoa extends javax.swing.JFrame {
                 String estado_civil = resultSet.getString(9);
                 String cidade = resultSet.getString(10);
                 String cep = resultSet.getString(11);
-                
-                defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep});
+            
+             defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep,});
             }
         }catch(Exception e){
             System.out.println(e.getMessage());
@@ -190,10 +194,10 @@ public class ListPessoa extends javax.swing.JFrame {
                 String estado_civil = resultSet.getString(9);
                 String cidade = resultSet.getString(10);
                 String cep = resultSet.getString(11);
+              
                 
-                defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep});
-            }
-        }catch(Exception e){
+             defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep,});
+            }        }catch(Exception e){
             System.out.println(e.getMessage());
         }
     }
@@ -223,8 +227,9 @@ public class ListPessoa extends javax.swing.JFrame {
                 String estado_civil = resultSet.getString(9);
                 String cidade = resultSet.getString(10);
                 String cep = resultSet.getString(11);
+               
                 
-                defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep});
+             defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep,});
             }
         }catch(Exception e){
             System.out.println(e.getMessage());
@@ -256,8 +261,9 @@ public class ListPessoa extends javax.swing.JFrame {
                 String estado_civil = resultSet.getString(9);
                 String cidade = resultSet.getString(10);
                 String cep = resultSet.getString(11);
+               
                 
-                defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep});
+             defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep,});
             }
         }catch(Exception e){
             System.out.println(e.getMessage());
@@ -289,8 +295,9 @@ public class ListPessoa extends javax.swing.JFrame {
                 String estado_civil = resultSet.getString(9);
                 String cidade = resultSet.getString(10);
                 String cep = resultSet.getString(11);
+              
                 
-                defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep});
+             defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep,});
             }
         }catch(Exception e){
             System.out.println(e.getMessage());
@@ -322,8 +329,9 @@ public class ListPessoa extends javax.swing.JFrame {
                 String estado_civil = resultSet.getString(9);
                 String cidade = resultSet.getString(10);
                 String cep = resultSet.getString(11);
+               
                 
-                defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep});
+             defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep,});
             }
         }catch(Exception e){
             System.out.println(e.getMessage());
@@ -355,8 +363,8 @@ public class ListPessoa extends javax.swing.JFrame {
                 String estado_civil = resultSet.getString(9);
                 String cidade = resultSet.getString(10);
                 String cep = resultSet.getString(11);
-                
-                defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep});
+              
+             defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep,});
             }
         }catch(Exception e){
             System.out.println(e.getMessage());
@@ -388,8 +396,9 @@ public class ListPessoa extends javax.swing.JFrame {
                 String estado_civil = resultSet.getString(9);
                 String cidade = resultSet.getString(10);
                 String cep = resultSet.getString(11);
+               
                 
-                defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep});
+                defaultTableModel.addRow(new Object[]{id, nome, sobrenome, rua, numRes, genero, telefone, email, estado_civil, cidade, cep,});
             }
         }catch(Exception e){
             System.out.println(e.getMessage());
@@ -430,7 +439,7 @@ public class ListPessoa extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "id", "Cidade", "Rua", "cep", "numero residencia", "nome", "sobrenome", "genero", "cep", "email", "estado civil"
+                "id", "Cidade", "Rua", "cep", "numero residencia", "nome", "sobrenome", "genero", "telefone", "email", "estado civil"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -533,6 +542,7 @@ public class ListPessoa extends javax.swing.JFrame {
             case 10:
                 listarPorEstadoCivil();
                 break;
+           
              }}
     }//GEN-LAST:event_btnBuscarActionPerformed
 
