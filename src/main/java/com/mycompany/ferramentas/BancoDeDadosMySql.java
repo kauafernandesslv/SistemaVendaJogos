@@ -18,8 +18,7 @@ public class BancoDeDadosMySql {
    
   
     private static final String URL = 
-        "jdbc:mysql://localhost:3306/sistemavendajogos?useSSL="
-      + "false&allowPublicKeyRetrieval=true";
+   "jdbc:mysql://localhost:3306/sistemavendajogos?useSSL="+ "false&allowPublicKeyRetrieval=true";
      
     
     private static final String USUARIO = "root";

@@ -43,7 +43,6 @@ com\mycompany\dao\DaoProduto.class
 com\mycompany\outros\MenuPrincipal$12.class
 com\mycompany\visao\cidade\CadCidade$3.class
 com\mycompany\visao\marca\CadMarca$3.class
-com\mycompany\visao\cliente\TelaVenda$6.class
 com\mycompany\visao\produto\CadProduto$2.class
 com\mycompany\outros\TelaInicial$1.class
 com\mycompany\outros\MenuPrincipal$11.class

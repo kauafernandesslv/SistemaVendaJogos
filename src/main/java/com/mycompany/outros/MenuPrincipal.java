@@ -128,6 +128,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel8.setAlignmentX(1.2F);
         jLabel8.setAlignmentY(1.2F);
 
+        jMenuBar1.setBackground(new java.awt.Color(153, 0, 153));
+        jMenuBar1.setForeground(new java.awt.Color(0, 0, 0));
+
         jMenu1.setText("Cadastros");
 
         miCadrastroCategoria.setText("Categoria");
