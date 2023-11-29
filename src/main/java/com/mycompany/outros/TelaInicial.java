@@ -66,7 +66,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Downloads\\—Pngtree—welcome wide banner_6593320.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Documents\\NetBeansProjects\\SistemaVendasJogos\\src\\main\\resources\\images\\—Pngtree—welcome wide banner_6593320.png")); // NOI18N
         jLabel1.setText("jLabel1");
 
         jPanel2.setBackground(new java.awt.Color(204, 0, 204));

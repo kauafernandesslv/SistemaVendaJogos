@@ -95,21 +95,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Downloads\\download (1).jfif")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Documents\\NetBeansProjects\\SistemaVendasJogos\\src\\main\\resources\\images\\download-_1_.jpg")); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Downloads\\download (2).jfif")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Documents\\NetBeansProjects\\SistemaVendasJogos\\src\\main\\resources\\images\\download-_2_.jpg")); // NOI18N
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Downloads\\images.jfif")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Documents\\NetBeansProjects\\SistemaVendasJogos\\src\\main\\resources\\images\\images.jpg")); // NOI18N
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -118,13 +118,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jLabel4.setText(",.,");
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Downloads\\download.jfif")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Documents\\NetBeansProjects\\SistemaVendasJogos\\src\\main\\resources\\images\\download.jpg")); // NOI18N
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Downloads\\images (1).jfif")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Documents\\NetBeansProjects\\SistemaVendasJogos\\src\\main\\resources\\images\\images-_1_.jpg")); // NOI18N
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Downloads\\images (2).jfif")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Documents\\NetBeansProjects\\SistemaVendasJogos\\src\\main\\resources\\images\\images-_2_.jpg")); // NOI18N
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Downloads\\tela.jfif")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Documents\\NetBeansProjects\\SistemaVendasJogos\\src\\main\\resources\\images\\tela.jpg")); // NOI18N
         jLabel8.setAlignmentX(1.2F);
         jLabel8.setAlignmentY(1.2F);
 

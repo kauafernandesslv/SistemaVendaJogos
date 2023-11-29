@@ -247,7 +247,7 @@ private void calculaTotalCompra(Double preco, int quantidade){
             }
         });
 
-        celbito.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Downloads\\cell.jfif")); // NOI18N
+        celbito.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Documents\\NetBeansProjects\\SistemaVendasJogos\\src\\main\\resources\\images\\cell.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

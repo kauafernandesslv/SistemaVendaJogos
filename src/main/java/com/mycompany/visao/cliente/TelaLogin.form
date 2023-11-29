@@ -185,7 +185,7 @@
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\kaua.1880\Downloads\download (1).jfif"/>
+              <Image iconType="2" name="C:\Users\kaua.1880\Documents\NetBeansProjects\SistemaVendasJogos\src\main\resources\images\download-_1_.jpg"/>
             </Property>
           </Properties>
         </Component>

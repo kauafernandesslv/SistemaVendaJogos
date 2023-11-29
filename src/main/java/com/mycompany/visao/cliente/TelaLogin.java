@@ -99,7 +99,7 @@ public class TelaLogin extends javax.swing.JDialog {
 
         pfSenha.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Downloads\\download (1).jfif")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Documents\\NetBeansProjects\\SistemaVendasJogos\\src\\main\\resources\\images\\download-_1_.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
