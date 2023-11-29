@@ -256,12 +256,12 @@ public class MenuPrincipalFrontEnd extends javax.swing.JFrame {
             tableProduto.getColumnModel().getColumn(0).setResizable(false);
         }
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Documents\\NetBeansProjects\\SistemaVendasJogos\\src\\main\\resources\\images\\images-_2_.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/images/images-_2_.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Documents\\NetBeansProjects\\SistemaVendasJogos\\src\\main\\resources\\images\\images-_1_.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/images/images-_1_.jpg"))); // NOI18N
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\kaua.1880\\Documents\\NetBeansProjects\\SistemaVendasJogos\\src\\main\\resources\\images\\download-_1_.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/images/download-_1_.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
