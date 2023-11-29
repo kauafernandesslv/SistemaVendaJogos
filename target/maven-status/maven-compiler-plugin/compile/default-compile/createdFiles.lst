@@ -46,7 +46,6 @@ com\mycompany\visao\marca\CadMarca$3.class
 com\mycompany\visao\produto\CadProduto$2.class
 com\mycompany\outros\TelaInicial$1.class
 com\mycompany\outros\MenuPrincipal$11.class
-com\mycompany\outros\MenuPrincipal$21.class
 com\mycompany\visao\categoria\ListCategoriaJogos.class
 com\mycompany\visao\pais\ListPais$1.class
 com\mycompany\outros\MenuPrincipal$18.class
@@ -81,7 +80,6 @@ com\mycompany\visao\endereco\CadEndereco.class
 com\mycompany\visao\estado_civil\CadEstado_civil$4.class
 com\mycompany\visao\categoria\ListCategoriaJogos$2.class
 com\mycompany\visao\produto\ListProduto.class
-com\mycompany\outros\MenuPrincipal$22.class
 com\mycompany\visao\pessoa\CadPessoa$3.class
 com\mycompany\dao\DaoPais.class
 com\mycompany\modelo\ModEstado_civil.class
@@ -108,7 +106,6 @@ com\mycompany\dao\DaoCidade.class
 com\mycompany\visao\estado_civil\ListEstado_civil$2.class
 com\mycompany\visao\marca\ListMarca$2.class
 com\mycompany\outros\MenuPrincipal$13.class
-com\mycompany\outros\MenuPrincipal$23.class
 com\mycompany\visao\cidade\ListCidade$2.class
 com\mycompany\outros\TelaInicial$2.class
 com\mycompany\visao\produto\CadProduto$1.class
